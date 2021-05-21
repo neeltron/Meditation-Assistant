@@ -13,6 +13,7 @@ void setup() {
   cp5 = new ControlP5(this);
   background(bg);
   fill(255, 196, 145);
+  stroke(255, 196, 145);
   rect(400, 100, 800, 800, 100);
   image(icon, 575, 150);
   fill(0);
