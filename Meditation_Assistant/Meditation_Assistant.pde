@@ -5,4 +5,6 @@ void setup() {
 }
 void draw() {
   background(bg);
+  fill(253, 142, 75);
+  rect(400, 100, 800, 800, 100);
 }
