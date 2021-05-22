@@ -1,18 +1,25 @@
-
+import processing.sound.*;
 import oscP5.*;
 import java.awt.*;
 import java.awt.Toolkit;
 
-
+SoundFile song;
 OscP5 oscP5;
 Robot bob;  
 
 
 float meditation;
+float volume;
 
-void setup(){
+
+void setup() {
+
+  volume = 0;
   meditation = 0;
   oscP5 = new OscP5(this, 7771); // Start listening for incoming messages at port 7771
+  song = new SoundFile(this, "rainforest.wav");
+  song.play();
+
 
   try { // Try and create a new robot named bob
     bob = new Robot();
@@ -23,9 +30,17 @@ void setup(){
 }
 
 
-void draw(){
+void draw() {
   println(meditation);  
+  volumeControl(meditation);
 }
+
+
+void volumeControl(float med) {
+  volume = map(med, 0, 100, 0.8, 0.05);
+  song.amp(volume);
+}
+
 
 void oscEvent(OscMessage theMessage) {
   // Print the address and typetag of the message to the console
