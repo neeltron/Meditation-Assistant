@@ -1,8 +1,10 @@
 import controlP5.*;
+import processing.sound.*;
 import oscP5.*;
 import java.awt.*;
 import java.awt.Toolkit;
 
+SoundFile song;
 ControlP5 cp5;
 OscP5 oscP5;
 Robot bob; 
@@ -17,6 +19,7 @@ String username;
 
 int screenNo = 0;
 float meditation = 75;
+float volume;
 int plotX = 400;
 int flagcheck = 0;
 
@@ -25,6 +28,8 @@ void setup() {
   bg = loadImage("bg.jpg");
   icon = loadImage("over.png");
   caricature = loadImage("caric.png");
+  volume = 0;
+  song = new SoundFile(this, "../../Desktop/rainforest.wav");
   cp5 = new ControlP5(this);
   oscP5 = new OscP5(this, 7771);
   try {
@@ -39,6 +44,7 @@ void setup() {
     fill(255, 196, 145);
     stroke(255, 196, 145);
     rect(400, 100, 800, 800, 50);
+    song.play();
     loop();
   } else {
     background(bg);
@@ -90,6 +96,7 @@ void draw() {
     stroke(0);
     strokeWeight(3);
     rect(plotX, 1000 - meditation * 5, 10, meditation * 5 - 100);
+    volumeControl(meditation);
     if (plotX == 1200) {
       flagcheck = 0;
       plotX = 400;
@@ -109,6 +116,11 @@ void controlEvent(ControlEvent theEvent) {
 
 void submit() {
   screenNo++;
+}
+
+void volumeControl(float med) {
+  volume = map(med, 0, 100, 0.8, 0.05);
+  song.amp(volume);
 }
 
 void oscEvent(OscMessage theMessage) {
