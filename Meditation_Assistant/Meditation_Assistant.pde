@@ -6,8 +6,10 @@ String[] textfieldNames = {"username"};
 PImage bg;
 PImage icon;
 String username;
+int screenNo;
 
 void setup() {
+  screenNo = 0;
   size(1600, 1000);
   bg = loadImage("bg.jpg");
   icon = loadImage("over.png");
@@ -38,7 +40,10 @@ void setup() {
   }
 }
 void draw() {
-  //println(username);
+  if(screenNo == 2) {
+    background(bg);
+    println(screenNo);
+  }
 }
 void controlEvent(ControlEvent theEvent) {
   if(theEvent.isAssignableFrom(Textfield.class)) {
@@ -50,5 +55,5 @@ void controlEvent(ControlEvent theEvent) {
   }
 }
 void submit() {
-  println("pressed");
+  screenNo++;
 }
