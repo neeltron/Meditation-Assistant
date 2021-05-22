@@ -13,6 +13,7 @@ String[] textfieldNames = {"username"};
 
 PImage bg;
 PImage icon;
+PImage play;
 PImage caricature;
 
 String username;
@@ -22,13 +23,18 @@ float meditation = 75;
 float volume;
 int plotX = 400;
 int flagcheck = 0;
+int time;
+int delay = 1000;
+int seconds = 0;
 
 void setup() {
   size(1600, 1000);
   bg = loadImage("bg.jpg");
   icon = loadImage("over.png");
   caricature = loadImage("caric.png");
+  play = loadImage("play.png");
   volume = 0;
+  time = millis();
   song = new SoundFile(this, "../../Desktop/rainforest.wav");
   cp5 = new ControlP5(this);
   oscP5 = new OscP5(this, 7771);
@@ -92,8 +98,16 @@ void draw() {
       setup();
     }
     plotX++;
+    if (millis() - time >= delay) {
+      time = millis();
+      seconds++;
+    }
+    fill(255, 196, 145);
+    stroke(255, 196, 145);
+    rect(500, 120, 200, 100);
     fill(0);
     stroke(0);
+    text("Timer: " + str(seconds), 500, 160);
     strokeWeight(3);
     rect(plotX, 1000 - meditation * 5, 10, meditation * 5 - 100);
     volumeControl(meditation);
