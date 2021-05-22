@@ -88,7 +88,8 @@ void draw() {
     plotX++;
     fill(0);
     stroke(0);
-    point(plotX, 1000 - meditation * 5);
+    strokeWeight(3);
+    rect(plotX, 1000 - meditation * 5, 10, meditation * 5 - 100);
     if (plotX == 1200) {
       flagcheck = 0;
       plotX = 400;
