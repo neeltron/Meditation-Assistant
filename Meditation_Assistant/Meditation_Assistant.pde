@@ -5,6 +5,7 @@ String[] textfieldNames = {"username"};
 
 PImage bg;
 PImage icon;
+PImage caricature;
 String username;
 int screenNo;
 
@@ -13,6 +14,7 @@ void setup() {
   size(1600, 1000);
   bg = loadImage("bg.jpg");
   icon = loadImage("over.png");
+  caricature = loadImage("caric.png");
   cp5 = new ControlP5(this);
   background(bg);
   fill(255, 196, 145);
@@ -38,14 +40,20 @@ void setup() {
        .setValue(0)
        .activateBy(ControlP5.RELEASE)
        ;
+     
   }
 }
 void draw() {
   if(screenNo == 2) {
     cp5.get("username").hide();
     cp5.get("submit").hide();
-    background(bg);
+    background(255, 196, 145);
     println(username);
+    image(caricature, 450, 150);
+    text("Connect your headset and click anywhere to begin", 400, 600);
+    if(mousePressed == true) {
+      screenNo = 3;
+    }
   }
 }
 void controlEvent(ControlEvent theEvent) {
