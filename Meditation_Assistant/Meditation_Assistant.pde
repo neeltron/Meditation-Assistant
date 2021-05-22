@@ -10,6 +10,7 @@ OscP5 oscP5;
 Robot bob; 
 
 String[] textfieldNames = {"username"};
+String[] lines;
 
 PImage bg;
 PImage icon;
@@ -27,6 +28,7 @@ int time;
 int delay = 1000;
 int seconds = 0;
 int minutes = 0;
+int s_time;
 
 void setup() {
   size(1600, 1000);
@@ -102,7 +104,8 @@ void draw() {
     if (millis() - time >= delay) {
       time = millis();
       seconds++;
-      if(seconds % 60 == 0) {
+      s_time++;
+      if (seconds % 60 == 0) {
         minutes++;
         seconds = 0;
       }
@@ -125,18 +128,21 @@ void draw() {
     rect(700, 420, 180, 100);
     fill(0);
     text("Stop", 710, 500);
-    if(mousePressed == true && mouseX >= 700 && mouseX <= 880 && mouseY >= 420 && mouseY <= 520) {
+    if (mousePressed == true && mouseX >= 700 && mouseX <= 880 && mouseY >= 420 && mouseY <= 520) {
+      String[] push = loadStrings("http://tangled.ae/test/MeditationAssistAPI/push_data.php?username="+username+"&time="+s_time+"&score=400");
+      println(push[0]);
+      delay(1000);
       screenNo = 4;
     }
   }
-  if(screenNo == 4) {
+  if (screenNo == 4) {
     background(bg);
     fill(255, 196, 145);
     stroke(255, 196, 145);
     rect(400, 100, 800, 800, 50);
     fill(0);
     stroke(0);
-    text("Leaderboard", 560, 180);
+    text("Leaderboard", 580, 180);
   }
 }
 
