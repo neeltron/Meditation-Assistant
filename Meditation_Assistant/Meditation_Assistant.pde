@@ -109,10 +109,11 @@ void draw() {
     }
     fill(255, 196, 145);
     stroke(255, 196, 145);
-    rect(430, 120, 200, 100);
+    rect(700, 120, 300, 100);
     fill(0);
     stroke(0);
-    text("Timer: " + str(minutes) + ":" + str(seconds), 430, 160);
+    textSize(72);
+    text(str(minutes) + ":" + str(seconds), 750, 180);
     strokeWeight(3);
     rect(plotX, 1000 - meditation * 5, 10, meditation * 5 - 100);
     volumeControl(meditation);
@@ -120,6 +121,18 @@ void draw() {
       flagcheck = 0;
       plotX = 400;
     }
+    fill(255, 220, 160);
+    rect(700, 800, 100, 50);
+    text("Stop", 700, 500);
+  }
+  if(screenNo == 4) {
+    background(bg);
+    fill(255, 196, 145);
+    stroke(255, 196, 145);
+    rect(400, 100, 800, 800, 50);
+    fill(0);
+    stroke(0);
+    text("Leaderboard", 430, 160);
   }
 }
 
