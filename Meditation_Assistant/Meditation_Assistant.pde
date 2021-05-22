@@ -18,6 +18,7 @@ PImage play;
 PImage caricature;
 
 String username;
+String leaderboard = "";
 
 int screenNo = 0;
 float meditation = 75;
@@ -29,8 +30,10 @@ int delay = 1000;
 int seconds = 0;
 int minutes = 0;
 int s_time;
+int iter;
 
 void setup() {
+  print("hello\tworld");
   size(1600, 1000);
   bg = loadImage("bg.jpg");
   icon = loadImage("over.png");
@@ -132,6 +135,10 @@ void draw() {
       String[] push = loadStrings("http://tangled.ae/test/MeditationAssistAPI/push_data.php?username="+username+"&time="+s_time+"&score=400");
       println(push[0]);
       delay(1000);
+      String[] get = loadStrings("http://tangled.ae/test/MeditationAssistAPI/get_data.php");
+      for (iter = 0; iter < 10; iter++) {
+        leaderboard += get[iter] + "\n";
+      }
       screenNo = 4;
     }
   }
@@ -143,6 +150,7 @@ void draw() {
     fill(0);
     stroke(0);
     text("Leaderboard", 580, 180);
+    text(leaderboard+"<br>check", 300, 220);
   }
 }
 
