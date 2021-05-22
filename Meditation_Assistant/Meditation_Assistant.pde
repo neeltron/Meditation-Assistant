@@ -41,8 +41,10 @@ void setup() {
 }
 void draw() {
   if(screenNo == 2) {
+    cp5.get("username").hide();
+    cp5.get("submit").hide();
     background(bg);
-    println(screenNo);
+    println(username);
   }
 }
 void controlEvent(ControlEvent theEvent) {
