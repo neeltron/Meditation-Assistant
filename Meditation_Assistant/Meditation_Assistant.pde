@@ -6,7 +6,9 @@ String[] textfieldNames = {"username"};
 PImage bg;
 PImage icon;
 PImage caricature;
+
 String username;
+
 int screenNo = 0;
 int meditation = 75;
 int plotX = 400;
@@ -25,7 +27,8 @@ void setup() {
     stroke(255, 196, 145);
     rect(400, 100, 800, 800, 50);
     loop();
-  } else {
+  } 
+  else {
     background(bg);
     fill(255, 196, 145);
     stroke(255, 196, 145);
@@ -53,6 +56,7 @@ void setup() {
     }
   }
 }
+
 void draw() {
   if (screenNo == 2) {
     cp5.get("username").hide();
@@ -72,9 +76,14 @@ void draw() {
     plotX++;
     fill(0);
     stroke(0);
-    point(plotX, 1000 - meditation * 10);
+    point(plotX, 1000 - meditation * 5);
+    if (plotX == 1200) {
+      flagcheck = 0;
+      plotX = 400;
+    }
   }
 }
+
 void controlEvent(ControlEvent theEvent) {
   if (theEvent.isAssignableFrom(Textfield.class)) {
     println("controlEvent: accessing a string from controller '"
@@ -84,6 +93,7 @@ void controlEvent(ControlEvent theEvent) {
     username = theEvent.getStringValue();
   }
 }
+
 void submit() {
   screenNo++;
 }
