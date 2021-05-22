@@ -32,8 +32,9 @@ void setup() {
        .setColorBackground(0xffffffff)
        ;
      cp5.addButton("submit")
-       .setPosition(800, 750)
+       .setPosition(750, 720)
        .setSize(100, 40)
+       .setFont(createFont("arial", 20))
        .setValue(0)
        .activateBy(ControlP5.RELEASE)
        ;
