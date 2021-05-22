@@ -122,8 +122,12 @@ void draw() {
       plotX = 400;
     }
     fill(255, 220, 160);
-    rect(700, 800, 100, 50);
-    text("Stop", 700, 500);
+    rect(700, 420, 180, 100);
+    fill(0);
+    text("Stop", 710, 500);
+    if(mousePressed == true && mouseX >= 700 && mouseX <= 880 && mouseY >= 420 && mouseY <= 520) {
+      screenNo = 4;
+    }
   }
   if(screenNo == 4) {
     background(bg);
@@ -132,7 +136,7 @@ void draw() {
     rect(400, 100, 800, 800, 50);
     fill(0);
     stroke(0);
-    text("Leaderboard", 430, 160);
+    text("Leaderboard", 560, 180);
   }
 }
 
