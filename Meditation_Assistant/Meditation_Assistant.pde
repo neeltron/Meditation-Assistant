@@ -1,5 +1,11 @@
 import controlP5.*;
+import oscP5.*;
+import java.awt.*;
+import java.awt.Toolkit;
+
 ControlP5 cp5;
+OscP5 oscP5;
+Robot bob; 
 
 String[] textfieldNames = {"username"};
 
@@ -10,7 +16,7 @@ PImage caricature;
 String username;
 
 int screenNo = 0;
-int meditation = 75;
+float meditation = 75;
 int plotX = 400;
 int flagcheck = 0;
 
@@ -20,6 +26,13 @@ void setup() {
   icon = loadImage("over.png");
   caricature = loadImage("caric.png");
   cp5 = new ControlP5(this);
+  oscP5 = new OscP5(this, 7771);
+  try {
+    bob = new Robot();
+  }
+  catch (AWTException e) {
+    e.printStackTrace();
+  }
   if (screenNo == 3) {
     flagcheck = 1;
     background(bg);
@@ -27,8 +40,7 @@ void setup() {
     stroke(255, 196, 145);
     rect(400, 100, 800, 800, 50);
     loop();
-  } 
-  else {
+  } else {
     background(bg);
     fill(255, 196, 145);
     stroke(255, 196, 145);
@@ -96,4 +108,10 @@ void controlEvent(ControlEvent theEvent) {
 
 void submit() {
   screenNo++;
+}
+
+void oscEvent(OscMessage theMessage) {
+  if (theMessage.checkAddrPattern("/meditation") == true) {
+    meditation = theMessage.get(0).floatValue();
+  }
 }
