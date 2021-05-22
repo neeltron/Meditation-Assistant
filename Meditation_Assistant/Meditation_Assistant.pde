@@ -5,6 +5,7 @@ String[] textfieldNames = {"username"};
 
 PImage bg;
 PImage icon;
+String username;
 
 void setup() {
   size(1600, 1000);
@@ -28,10 +29,16 @@ void setup() {
        .setColor(0)
        .setColorBackground(0xffffffff)
        ;
+     cp5.addButton("submit")
+       .setPosition(800, 750)
+       .setSize(100, 40)
+       .setValue(0)
+       .activateBy(ControlP5.RELEASE)
+       ;
   }
 }
 void draw() {
-  
+  //println(username);
 }
 void controlEvent(ControlEvent theEvent) {
   if(theEvent.isAssignableFrom(Textfield.class)) {
@@ -39,5 +46,9 @@ void controlEvent(ControlEvent theEvent) {
             +theEvent.getName()+"': "
             +theEvent.getStringValue()
             );
+    username = theEvent.getStringValue();
   }
+}
+void submit() {
+  println("pressed");
 }
