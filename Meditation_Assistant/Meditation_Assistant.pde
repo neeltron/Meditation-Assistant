@@ -26,6 +26,7 @@ int flagcheck = 0;
 int time;
 int delay = 1000;
 int seconds = 0;
+int minutes = 0;
 
 void setup() {
   size(1600, 1000);
@@ -101,13 +102,17 @@ void draw() {
     if (millis() - time >= delay) {
       time = millis();
       seconds++;
+      if(seconds % 60 == 0) {
+        minutes++;
+        seconds = 0;
+      }
     }
     fill(255, 196, 145);
     stroke(255, 196, 145);
-    rect(500, 120, 200, 100);
+    rect(430, 120, 200, 100);
     fill(0);
     stroke(0);
-    text("Timer: " + str(seconds), 500, 160);
+    text("Timer: " + str(minutes) + ":" + str(seconds), 430, 160);
     strokeWeight(3);
     rect(plotX, 1000 - meditation * 5, 10, meditation * 5 - 100);
     volumeControl(meditation);
