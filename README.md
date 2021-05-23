@@ -22,5 +22,14 @@ git clone https://github.com/sojamo/controlp5/releases
 ```
 
 ## Instructions to Run
++ Open Meditation_Assistant/Meditation_Assistant.pde and turn BrainwaveOSC on.
++ Run it and enter your username.
++ Calibrate your headset.
++ Meditate!
+
+## Relevant Links
+Devpost: https://devpost.com/software/mindrealm<br>
+Demonstration: https://youtu.be/-82fk_1Jc7U
 
 ## Next up
+We're planning to host it on a server, make it available to the public, and probably include self-assessment meditation kits (with an EEG headset).
