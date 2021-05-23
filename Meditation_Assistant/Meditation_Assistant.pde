@@ -23,6 +23,7 @@ String leaderboard = "";
 int screenNo = 0;
 float meditation = 75;
 float volume;
+float score = 0;
 int plotX = 400;
 int flagcheck = 0;
 int time;
@@ -121,6 +122,7 @@ void draw() {
     text(str(minutes) + ":" + str(seconds), 750, 180);
     strokeWeight(3);
     rect(plotX, 1000 - meditation * 5, 10, meditation * 5 - 100);
+    score += meditation/1000;
     volumeControl(meditation);
     if (plotX == 1200) {
       flagcheck = 0;
@@ -131,7 +133,7 @@ void draw() {
     fill(0);
     text("Stop", 710, 500);
     if (mousePressed == true && mouseX >= 700 && mouseX <= 880 && mouseY >= 420 && mouseY <= 520) {
-      String[] push = loadStrings("http://tangled.ae/test/MeditationAssistAPI/push_data.php?username="+username+"&time="+s_time+"&score=400");
+      String[] push = loadStrings("http://tangled.ae/test/MeditationAssistAPI/push_data.php?username="+username+"&time="+s_time+"&score="+score);
       println(push[0]);
       delay(1000);
       String[] get = loadStrings("http://tangled.ae/test/MeditationAssistAPI/get_data.php");
