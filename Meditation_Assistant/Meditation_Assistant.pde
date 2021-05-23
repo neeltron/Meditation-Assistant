@@ -135,7 +135,6 @@ void draw() {
     if (mousePressed == true && mouseX >= 700 && mouseX <= 880 && mouseY >= 420 && mouseY <= 520) {
       String[] push = loadStrings("http://tangled.ae/test/MeditationAssistAPI/push_data.php?username="+username+"&time="+s_time+"&score="+score);
       println(push[0]);
-      delay(1000);
       String[] get = loadStrings("http://tangled.ae/test/MeditationAssistAPI/get_data.php");
       for (iter = 0; iter < 10; iter++) {
         leaderboard += get[iter] + "\n";
@@ -153,7 +152,7 @@ void draw() {
     textSize(72);
     text("Leaderboard", 580, 180);
     textSize(32);
-    text("Username | Time | Score", 430, 250);
+    text("Username | Time (s) | Score", 430, 250);
     text(leaderboard, 430, 300);
   }
 }
