@@ -14,7 +14,12 @@ When it comes to Mental Health, the power of meditation is often underestimated.
 ```
 git clone https://github.com/trentbrooks/BrainWaveOSC
 ```
-+ Processing 3
++ <a href="https://processing.org/download/">Processing 3</a>
++ <a href = "https://www.php.net/downloads">PHP</a>
++ controlP5
+```
+git clone https://github.com/sojamo/controlp5/releases
+```
 
 ## Instructions to Run
 
