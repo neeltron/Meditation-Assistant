@@ -7,6 +7,7 @@ When it comes to Mental Health, the power of meditation is often underestimated.
   <li>EEG Headset</li>
   <li>Brainwave OSC</li>
   <li>Processing 3</li>
+  <li>DataStax Astra Account</li>
 </ul>
 
 ## Installation
