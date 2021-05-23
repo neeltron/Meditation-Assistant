@@ -10,6 +10,11 @@ When it comes to Mental Health, the power of meditation is often underestimated.
 </ul>
 
 ## Installation
++ Brainwave OSC
+```
+git clone https://github.com/trentbrooks/BrainWaveOSC
+```
++ Processing 3
 
 ## Instructions to Run
 
