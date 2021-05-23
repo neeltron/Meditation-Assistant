@@ -33,7 +33,6 @@ int s_time;
 int iter;
 
 void setup() {
-  print("hello\tworld");
   size(1600, 1000);
   bg = loadImage("bg.jpg");
   icon = loadImage("over.png");
@@ -149,8 +148,11 @@ void draw() {
     rect(400, 100, 800, 800, 50);
     fill(0);
     stroke(0);
+    textSize(72);
     text("Leaderboard", 580, 180);
-    text(leaderboard+"<br>check", 300, 220);
+    textSize(32);
+    text("Username | Time | Score", 430, 250);
+    text(leaderboard, 430, 300);
   }
 }
 
