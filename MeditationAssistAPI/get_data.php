@@ -15,5 +15,9 @@ curl_setopt_array($curl, array(
 ));
 $response = curl_exec($curl);
 curl_close($curl);
-echo $response;
+$result = json_decode($response, true);
+$i = 0;
+for($i=0;$i<$result["count"];$i++) {
+    echo $result["rows"][$i]["username"]."       ".$result["rows"][$i]["time"]."  ".$result["rows"][$i]["score"]."\n";
+}
 ?>
